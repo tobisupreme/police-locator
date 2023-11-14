@@ -1,16 +1,23 @@
 import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import config from 'config';
+import connectDb from '../config/db';
 
 const app: Express = express();
-const port = process.env.PORT || 6969;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('We outhere!');
+  res.send('Express with TypeScript!');
 });
 
-
-app.listen(port, () => {
-  console.log(`[${new Date().toTimeString()}]: ⚡ Server is runnfing on ${port}`);
-})
+const port = config.get('app.port');
+connectDb(config.get('db.url'))
+  .then(() => {
+    app.listen(port, () => {
+      console.log(
+        `⚡ [${new Date().toTimeString()}]: Server is running on ${port}`
+      );
+    });
+  })
+  .catch((err) => {
+    console.error('Oops, something went wrong!', err);
+    process.exit(1);
+  });

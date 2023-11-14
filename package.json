@@ -11,15 +11,19 @@
   "author": "tobisupreme (Oluwatobi Balogun)",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.9",
     "consolidate": "^1.0.3",
     "debug": "^4.3.4",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "handlebars": "^4.7.8",
     "mongoose": "^8.0.0",
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.7.2",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/config": "^3.3.3",
+    "@types/consolidate": "^0.14.4",
     "@types/express": "^4.17.21",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.9.0",

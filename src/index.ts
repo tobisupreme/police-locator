@@ -1,8 +1,10 @@
 import express, { Express, Request, Response } from 'express';
 import config from 'config';
 import connectDb from '../config/db';
+import copsRouter from './routes/cops.routes';
 
 const app: Express = express();
+app.use('/cops', copsRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express with TypeScript!');

@@ -3,7 +3,7 @@ import { fetchAllCops, fetchNearestCops } from '../controllers/cops.controller';
 
 const router = Router();
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/cops', async (req: Request, res: Response) => {
   const latitude = Number(req.query.lat);
   const longitude = Number(req.query.lng);
   const cops =
@@ -12,6 +12,12 @@ router.get('/', async (req: Request, res: Response) => {
       : await fetchAllCops();
   return res.json({
     cops,
+  });
+});
+
+router.get('/cop.html', async (req: Request, res: Response) => {
+  return res.render('cop.html', {
+    userId: req.query.userId,
   });
 });
 

@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/src/index.js",
-    "start:dev": "concurrently \"bunx tsc --watch\" \"nodemon -q dist/src/index.js\"",
+    "start": "node dist/src/server.js",
+    "start:dev": "concurrently \"bunx tsc --watch\" \"nodemon -q dist/src/server.js\"",
     "test": "jest"
   },
   "author": "tobisupreme (Oluwatobi Balogun)",
